@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:math';
 import 'package:stagexl/stagexl.dart';
 
@@ -7,6 +8,17 @@ class ElementList extends DisplayObjectContainer {
   Random random = Random();
 
 ElementList(int max, int min, int amount) {
+  newElementList(max, min, amount);
+}
+
+void newElementList(int max, int min, int amount) {
+
+  if (values.isNotEmpty) {
+    //stage.removeChildren();
+    values.clear();
+    bitmaps.clear();
+  }
+
   for (int i = 0; i < amount; i++) {
 
     // Value calculations
@@ -39,7 +51,7 @@ ElementList(int max, int min, int amount) {
       elementBitmap.pivotY = 0;
     }
     elementBitmap.x = 128 + (((i + 1) / (amount + 1)) * 1024);
-    elementBitmap.y = 400;
+    elementBitmap.y = 500;
 
     addChild(elementBitmap);
     values.add(value);
@@ -61,16 +73,20 @@ ElementList(int max, int min, int amount) {
     bitmaps[b].x = tempX;
   }
 
-  bubbleSort() {
+  void clearLists() {
+    values.clear();
+    bitmaps.clear();
+  }
+
+  void bubbleSort() {
     for (int i = 0; i < values.length-1; i++) { 
       for (int j = 0; j < values.length-i-1; j++) {
         if (values[j] > values[j + 1]) {
-            num a = values[j], b = values[j + 1];
-            print('$a is larger than $b');
-            swap(j, j+1);
+          num a = values[j], b = values[j + 1];
+          print('$a is larger than $b');
+          swap(j, j+1);
         }
       }
     }
   }
-
 }
