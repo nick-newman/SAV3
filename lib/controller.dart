@@ -124,6 +124,16 @@ class Controller {
     int max = int.parse((querySelector("#maxValueInput") as InputElement).value),
       min = int.parse((querySelector("#minValueInput") as InputElement).value),
       amount = int.parse((querySelector("#amountInput") as InputElement).value);
+    if (max > 999999) {
+      max = 999999;
+    } else if (max < -999999) {
+      max = -999999;
+    }
+    if (min > 999999) {
+      min = 999999;
+    } else if (min < -999999) {
+      min = -999999;
+    }
     num halfMax = max / 2,
       halfMin = min / 2;
     minText.text = '$min';
