@@ -67,6 +67,7 @@ class ElementList extends DisplayObjectContainer {
   }
 
   bubbleSort() {
+    print('Bubble sort -------------------');
     for (int i = 0; i < values.length - 1; i++) {
       for (int j = 0; j < values.length - i - 1; j++) {
         if (values[j] > values[j + 1]) {
