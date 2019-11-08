@@ -7,57 +7,50 @@ class ElementList extends DisplayObjectContainer {
   List<Bitmap> bitmaps = [];
   Random random = Random();
 
-ElementList(int max, int min, int amount) {
-  newElementList(max, min, amount);
-}
+  ElementList();
 
-void newElementList(int max, int min, int amount) {
-
-  if (values.isNotEmpty) {
-    //stage.removeChildren();
+  newElementList(int max, int min, int amount) {
+    removeChildren();
     values.clear();
     bitmaps.clear();
+
+    for (int i = 0; i < amount; i++) {
+      // Value calculations
+      int value;
+      if (min == max || max == min) {
+        value = max;
+      } else {
+        value = min + random.nextInt(max - min);
+      }
+
+      // Width and height calculations
+      num width = (1024 / amount) * 0.5, height;
+      if (value.abs() < 1) {
+        height = 1;
+      } else if (value.abs() > max || (value.abs() < max && value.isNegative)) {
+        height = (value.abs() / min.abs()) * 256;
+      } else {
+        height = (value.abs() / max) * 256;
+      }
+
+      var element = BitmapData(width, height, Color.SpringGreen);
+      var elementBitmap = Bitmap(element);
+
+      // Bitmap position calculations
+      elementBitmap.pivotX = elementBitmap.width / 2;
+      if (value >= 0) {
+        elementBitmap.pivotY = elementBitmap.height;
+      } else {
+        elementBitmap.pivotY = -2;
+      }
+      elementBitmap.x = 128 + (((i + 1) / (amount + 1)) * 1024);
+      elementBitmap.y = 256;
+
+      addChild(elementBitmap);
+      values.add(value);
+      bitmaps.add(elementBitmap);
+    }
   }
-
-  for (int i = 0; i < amount; i++) {
-
-    // Value calculations
-    int value;
-    if (min == max || max == min) {
-      value = max;
-    } else {
-      value = min + random.nextInt(max - min);
-    }
-
-    // Width and height calculations
-    num width = (1024 / amount) * 0.5,
-      height;
-    if (value.abs() < 1) {
-      height = 1;
-    } else if (value.abs() > max || (value.abs() < max && value.isNegative)) {
-      height = (value.abs() / min.abs()) * 256;
-    } else {
-      height = (value.abs() / max) * 256;
-    }
-
-    var element = BitmapData(width, height, Color.SpringGreen);
-    var elementBitmap = Bitmap(element);
-
-    // Bitmap position calculations
-    elementBitmap.pivotX = elementBitmap.width / 2;
-    if (value >= 0) {
-      elementBitmap.pivotY = elementBitmap.height;
-    } else {
-      elementBitmap.pivotY = 0;
-    }
-    elementBitmap.x = 128 + (((i + 1) / (amount + 1)) * 1024);
-    elementBitmap.y = 500;
-
-    addChild(elementBitmap);
-    values.add(value);
-    bitmaps.add(elementBitmap);
-  }
-}
 
   swap(int a, int b) {
     int tempValue = values[a];
@@ -73,18 +66,13 @@ void newElementList(int max, int min, int amount) {
     bitmaps[b].x = tempX;
   }
 
-  void clearLists() {
-    values.clear();
-    bitmaps.clear();
-  }
-
-  void bubbleSort() {
-    for (int i = 0; i < values.length-1; i++) { 
-      for (int j = 0; j < values.length-i-1; j++) {
+  bubbleSort() {
+    for (int i = 0; i < values.length - 1; i++) {
+      for (int j = 0; j < values.length - i - 1; j++) {
         if (values[j] > values[j + 1]) {
           num a = values[j], b = values[j + 1];
           print('$a is larger than $b');
-          swap(j, j+1);
+          swap(j, j + 1);
         }
       }
     }
