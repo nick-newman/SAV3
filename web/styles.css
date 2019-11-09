@@ -40,6 +40,15 @@ html, body, .stage--fullscreen {
     color: rgb(0, 0, 0);
 }
 
+#durationValueInput {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+}
+
 #randomizeButton {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
@@ -82,6 +91,16 @@ html, body, .stage--fullscreen {
 }
 
 #amountText {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 1px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+
+#speedText {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     text-align: left;

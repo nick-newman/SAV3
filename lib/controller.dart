@@ -153,6 +153,10 @@ class Controller {
   }
 
   sortButtonPressed() {
-    elementList.bubbleSort();
+    int duration = int.parse((querySelector("#durationValueInput") as InputElement).value);
+    if (duration <= 0) {
+      duration = 100;
+    }
+    elementList.bubbleSort(duration);
   }
 }
