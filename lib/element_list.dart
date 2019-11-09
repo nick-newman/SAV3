@@ -96,13 +96,8 @@ class ElementList extends DisplayObjectContainer {
     bitmaps[b].x = tempX;
   }
 
-<<<<<<< HEAD
 //TODO: animation speed
   bubbleSort(int duration) async {
-=======
-  bubbleSort() {
-    print('Bubble sort -------------------');
->>>>>>> 1954f862ec91ab8d00477f4592fd58db0fdaac61
     for (int i = 0; i < values.length - 1; i++) {
       for (int j = 0; j < values.length - i - 1; j++) {
         changeColor(j, j + 1, Color.LightSkyBlue);
