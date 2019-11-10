@@ -1,1 +1,1 @@
-Current version has bubble sort and many errors.
+Currently has visualizations for bubble sort, selection sort, and insertion sort.
