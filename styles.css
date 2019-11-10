@@ -93,6 +93,17 @@ html, body, .stage--fullscreen {
     color: rgb(0, 0, 0);
 }
 
+#bogoSortButton {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+}
+
 #stopButton {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
