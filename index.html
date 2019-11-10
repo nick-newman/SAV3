@@ -2,6 +2,32 @@
 
 <html>
 <head>
+<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
+</style>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,20 +35,33 @@
     <title>Sorting Algorithm Visualiser</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="main.dart.js"></script>
+
 </head>
 
 <body>
 
-    <p id="minValueText">Maximum Value</p>
-    <input type ="text" value ="100" id ="maxValueInput"><br>
-    <p id="maxValueText">Minimum Value</p>
-    <input type ="text" value ="-100" id ="minValueInput"><br>
-    <p id="amountText">Amount</p>
-    <input type ="text" value ="20" id ="amountInput"><br>
-    <p id="speedText">Speed (ms)</p>
-    <input type ="text" value ="1000" id ="durationValueInput"><br>
-    <input type ="submit" value ="Randomize" id ="randomizeButton"><br>
-    <input type ="submit" value ="Bubble Sort" id = "sortButton"><br>
+    <ul>
+        <li><p id="minValueText">Maximum Value</p>
+        <input type ="text" value ="100" id ="maxValueInput"><br></li>
+        <li><p id="maxValueText">Minimum Value</p>
+        <input type ="text" value ="0" id ="minValueInput"><br></li>
+    </ul>
+
+    <ul>
+        <li><p id="amountText">Amount</p>
+        <input type ="text" value ="10" id ="amountInput"><br></li>
+        <li><p id="speedText">Speed (ms)</p>
+        <input type ="text" value ="100" id ="durationValueInput"><br></li>
+    </ul>
+
+    <ul>
+        <li><input type ="submit" value ="Randomize" id ="randomizeButton"><br></li>
+        <li><input type ="submit" value ="Stop" id = "stopButton"><br></li>
+        <li><input type ="submit" value ="Bubble Sort" id = "bubbleSortButton"><br></li>
+        <li><input type ="submit" value ="Selection Sort" id = "selectionSortButton"><br></li>
+        <li><input type ="submit" value ="Insertion Sort" id = "insertionSortButton"><br></li>
+    </ul>
+
     <canvas id="stage" class="stage--fullscreen"></canvas>
 
 </body>

@@ -1,1 +1,0 @@
-{"isEntrypoint":true,"deps":["stagexl|lib/stagexl.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":["async","html","math"],"hasMain":false}
