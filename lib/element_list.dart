@@ -145,6 +145,7 @@ class ElementList extends DisplayObjectContainer {
     sorting = true;
     for (int i = 1; i < values.length; i++) {
       for (int j = i; j > 0 && values[j] < values[j - 1]; j--) {
+        changeColor(i, i, Color.LightSkyBlue);
         changeColor(j, j - 1, Color.PaleVioletRed);
         await Future.delayed(Duration(milliseconds : duration));
         swap(j, j - 1);
@@ -152,6 +153,7 @@ class ElementList extends DisplayObjectContainer {
         changeColor(j, j - 1, Color.SpringGreen);
       }
     }
+    changeColor(bitmaps.length - 1, bitmaps.length - 1, Color.SpringGreen);
     sorting = false;
   }
 
