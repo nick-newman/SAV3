@@ -27,9 +27,24 @@ class Controller {
       randomizeButtonPressed();
     });
 
-    var sortButton = querySelector('#sortButton');
-    sortButton.onClick.listen((e) {
-      sortButtonPressed();
+    var bubbleSortButton = querySelector('#bubbleSortButton');
+    bubbleSortButton.onClick.listen((e) {
+      bubbleSortButtonPressed();
+    });
+
+    var selectionSortButton = querySelector('#selectionSortButton');
+    selectionSortButton.onClick.listen((e) {
+      selectionSortButtonPressed();
+    });
+
+    var insertionSortButton = querySelector('#insertionSortButton');
+    insertionSortButton.onClick.listen((e) {
+      insertionSortButtonPressed();
+    });
+
+    var stopButton = querySelector('#stopButton');
+    stopButton.onClick.listen((e) {
+      stopButtonPressed();
     });
 
     Bitmap minLine = Bitmap(BitmapData(1280, 2, Color.LightGray))
@@ -152,11 +167,28 @@ class Controller {
     createElementList();
   }
 
-  sortButtonPressed() {
+  int parseDuration() {
     int duration = int.parse((querySelector("#durationValueInput") as InputElement).value);
     if (duration <= 0) {
-      duration = 100;
+      duration = 1;
     }
-    elementList.bubbleSort(duration);
+    return duration;
   }
+
+  bubbleSortButtonPressed() {
+    elementList.bubbleSort(parseDuration());
+  }
+
+  selectionSortButtonPressed() {
+    elementList.selectionSort(parseDuration());
+  }
+
+  insertionSortButtonPressed() {
+    elementList.insertionSort(parseDuration());
+  }
+
+  stopButtonPressed() {
+    elementList.stopSorting();
+  }
+
 }

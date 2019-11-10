@@ -12,6 +12,9 @@ class ElementList extends DisplayObjectContainer {
 
   newElementList(int max, int min, int amount) {
     removeChildren();
+    for (int i = 0; i < bitmaps.length; i++) {
+      bitmaps[i].visible = false;
+    }
     values.clear();
     bitmaps.clear();
 
@@ -96,22 +99,65 @@ class ElementList extends DisplayObjectContainer {
     bitmaps[b].x = tempX;
   }
 
-//TODO: animation speed
+  bool sorting;
+
   bubbleSort(int duration) async {
+    sorting = true;
     for (int i = 0; i < values.length - 1; i++) {
       for (int j = 0; j < values.length - i - 1; j++) {
         changeColor(j, j + 1, Color.LightSkyBlue);
         await Future.delayed(Duration(milliseconds : duration));
           if (values[j] > values[j + 1]) {
-            num a = values[j], b = values[j + 1];
+            //num a = values[j], b = values[j + 1];
             changeColor(j, j + 1, Color.PaleVioletRed);
             await Future.delayed(Duration(milliseconds : duration));
-            print('$a is larger than $b');
+            //print('$a is larger than $b');
             swap(j, j + 1);
           }
         await Future.delayed(Duration(milliseconds : duration));
         changeColor(j, j + 1, Color.SpringGreen);
       }
+    }
+    sorting = false;
+  }
+
+  selectionSort(int duration) async {
+    sorting = true;
+    for (int i = 0; i < values.length - 1; i++) {
+      int min_j = i;
+      for (int j = i; j < values.length; j++) {
+        changeColor(i, min_j, Color.LightSkyBlue);
+        if (values[j] < values[min_j]) {
+          min_j = j;
+        }
+      }
+      await Future.delayed(Duration(milliseconds : duration));
+      changeColor(i, min_j, Color.PaleVioletRed);
+      await Future.delayed(Duration(milliseconds : duration));
+      swap(i, min_j);
+      await Future.delayed(Duration(milliseconds : duration));
+      changeColor(i, min_j, Color.SpringGreen);
+    }
+    sorting = false;
+  }
+
+  insertionSort(int duration) async {
+    sorting = true;
+    for (int i = 1; i < values.length; i++) {
+      for (int j = i; j > 0 && values[j] < values[j - 1]; j--) {
+        changeColor(j, j - 1, Color.PaleVioletRed);
+        await Future.delayed(Duration(milliseconds : duration));
+        swap(j, j - 1);
+        await Future.delayed(Duration(milliseconds : duration));
+        changeColor(j, j - 1, Color.SpringGreen);
+      }
+    }
+    sorting = false;
+  }
+
+  stopSorting() {
+    if (sorting) {
+      values.clear();
     }
   }
 }

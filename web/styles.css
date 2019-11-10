@@ -53,20 +53,54 @@ html, body, .stage--fullscreen {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     text-align: left;
-    margin-top: 20px;
     margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 240, 140);
+    color: rgb(0, 0, 0);
+}
+
+#bubbleSortButton {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(240, 240, 240);
     color: rgb(0, 0, 0);
 }
 
-#sortButton {
+#selectionSortButton {
     font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     text-align: left;
     margin-left: 20px;
+    margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+}
+
+#insertionSortButton {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 240, 240);
+    color: rgb(0, 0, 0);
+}
+
+#stopButton {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(240, 180, 180);
     color: rgb(0, 0, 0);
 }
 
