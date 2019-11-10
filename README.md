@@ -1,1 +1,1 @@
-Currently has visualizations for bubble sort, selection sort, and insertion sort.
+Currently has visualizations for bubble sort, selection sort, insertion sort, and bogo sort.
