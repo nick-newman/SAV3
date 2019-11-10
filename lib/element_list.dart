@@ -157,7 +157,44 @@ class ElementList extends DisplayObjectContainer {
     sorting = false;
   }
 
+  bool stopped = false;
+
+  bogoSort(int duration) async {
+    bool sorted = false;
+    stopped = false;
+    bogoColor(Color.PaleVioletRed);
+    while (!sorted && !stopped) {
+      await Future.delayed(Duration(milliseconds : duration));
+      bitmaps.shuffle();
+      bogoSwapPositions();
+      sorted = checkIfSorted();
+    }
+    bogoColor(Color.SpringGreen);
+  }
+
+  bogoColor(num color) {
+    for (int i = 0; i < bitmaps.length - 1; i++) {
+      changeColor(i, i + 1, color);
+    }
+  }
+
+  bogoSwapPositions() {
+    for (int i = 0; i < bitmaps.length; i++) {
+      bitmaps[i].x = 128 + (((i + 1) / (bitmaps.length + 1)) * 1024);
+    }
+  }
+
+  checkIfSorted() {
+    for (int i = 0; i < bitmaps.length - 1; i++) {
+      if (bitmaps[i].height > bitmaps[i + 1].height) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   stopSorting() {
+    stopped = true;
     if (sorting) {
       values.clear();
     }

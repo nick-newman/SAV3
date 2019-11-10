@@ -42,6 +42,11 @@ class Controller {
       insertionSortButtonPressed();
     });
 
+    var bogoSortButton = querySelector('#bogoSortButton');
+    bogoSortButton.onClick.listen((e) {
+      bogoSortButtonPressed();
+    });
+
     var stopButton = querySelector('#stopButton');
     stopButton.onClick.listen((e) {
       stopButtonPressed();
@@ -185,6 +190,10 @@ class Controller {
 
   insertionSortButtonPressed() {
     elementList.insertionSort(parseDuration());
+  }
+
+  bogoSortButtonPressed() {
+    elementList.bogoSort(parseDuration());
   }
 
   stopButtonPressed() {
